@@ -3,21 +3,25 @@ import logoImg from "@/assets/logo.png";
 
 import Image from "next/image";
 import MyLink from "./MyLink";
+import { RiHome2Line, RiTimeLine } from "react-icons/ri";
+import { ImStatsDots } from "react-icons/im";
 
 const Navbar = () => {
   const navItems = [
     {
       path: "/",
       text: "Home",
-
+      element: <RiHome2Line/>
     },
     {
       path: "/timeline",
       text: "Timeline",
+      element: <RiTimeLine/>
     },
     {
       path: "/Stats",
       text: "Stats",
+      element: <ImStatsDots/>
     },
   ];
 
@@ -34,7 +38,7 @@ const Navbar = () => {
           {navItems.map((item, index) => (
             // Client component
             <MyLink key={index} href={item.path}>
-              {item.text}
+              {item.element} {item.text}
             </MyLink>
           ))}
 
