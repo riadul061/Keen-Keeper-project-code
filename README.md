@@ -1,3 +1,27 @@
+Name of MY project: Keen-Keeper
+
+A short description:
+This is a modern Friend Tracker web application where users can manage and track their connections with friends. The app provides a clean dashboard, timeline view, and detailed friend profiles to help users stay connected and organized.
+
+Technologies me used:
+1.React.js
+2.Next.js
+3.Tailwind CSS
+4.React Icons
+5.JSON Data (Local / API)
+
+3 key features of my project:
+
+1.Interactive Navigation System
+A fully responsive navbar with icons and active route highlighting (Home, Timeline, Stats), matching the Figma design exactly.
+
+ 2.Timeline & Friend Tracking
+Users can view a timeline of interactions and track how many days since they last contacted each friend.
+
+ 3.Dynamic Friend Profiles
+Each friend has a detailed profile page with bio, tags, contact info, and status indicators (active, overdue, etc.).
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
