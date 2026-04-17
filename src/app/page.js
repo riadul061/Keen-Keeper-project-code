@@ -1,34 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import Banner from "@/components/homepage/Banner";
-import Friends from "@/components/homepage/Friends";
-import Stats from "@/components/homepage/Stats";
+import friendsData from "@/data/friends.json";
+
 import Navbar from "@/components/shared/Navbar";
-import Image from "next/image";
+import Banner from "@/components/homepage/Banner";
+import Stats from "@/components/homepage/Stats";
+import Friends from "@/components/homepage/Friends";
+import Footer from "@/components/footer/Foooter";
 
 export default function Home() {
-
-  const [friends, setFriends] = useState([
-    { name: "David Kim", status: "Almost Due", tag: "WORK" },
-    { name: "Emma Wilson", status: "Overdue", tag: "FAMILY" },
-    { name: "Lisa Nakamura", status: "Overdue", tag: "WORK" },
-    { name: "James Wright", status: "Overdue", tag: "HOBBY TRAVEL" },
-
-    { name: "David Kim", status: "Overdue", tag: "WORK" },
-    { name: "Emma Wilson", status: "On Track", tag: "FAMILY" },
-    { name: "Lisa Nakamura", status: "On Track", tag: "WORK" },
-    { name: "James Wright", status: "Almost Due", tag: "HOBBY TRAVEL" },
-
-    { name: "David Kim", status: "Almost Due", tag: "WORK" },
-    { name: "Emma Wilson", status: "Overdue", tag: "FAMILY" },
-  ]);
+  const [friends, setFriends] = useState(friendsData);
 
   return (
-    <div>
+    <div className="bg-gray-50 min-h-screen">
+
       <Banner friends={friends} setFriends={setFriends} />
       <Stats friends={friends} />
-      <Friends friends={friends} setFriends={setFriends} />
+
+      <Friends friends={friends} />
     </div>
   );
 }

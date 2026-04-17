@@ -1,58 +1,68 @@
-
+"use client";
 import logoImg from "@/assets/logo.png";
-
 import Image from "next/image";
 import MyLink from "./MyLink";
 import { RiHome2Line, RiTimeLine } from "react-icons/ri";
 import { ImStatsDots } from "react-icons/im";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   const navItems = [
     {
       path: "/",
       text: "Home",
-      element: <RiHome2Line/>
+      element: <RiHome2Line />
     },
     {
       path: "/timeline",
       text: "Timeline",
-      element: <RiTimeLine/>
+      element: <RiTimeLine />
     },
     {
-      path: "/Stats",
+      path: "/stats",
       text: "Stats",
-      element: <ImStatsDots/>
+      element: <ImStatsDots />
     },
   ];
 
   return (
-    <nav className=" shadow">
-      <div className="flex justify-between gap-4 items-center  py-[8px] container mx-auto">
+    <nav className="border-b bg-white">
+      <div className="flex justify-between items-center py-1 px-6 max-w-7xl mx-auto">
+
+        {/* Logo */}
         <Image
           src={logoImg}
           alt="keen-keeper logo"
-          className="w-[141px] h-[31px]"
+          className="w-[120px] h-auto"
         />
 
-        <ul className="flex justify-between gap-2 items-center">
-          {navItems.map((item, index) => (
-            // Client component
-            <MyLink key={index} href={item.path}>
-              {item.element} {item.text}
-            </MyLink>
-          ))}
+        {/* Nav Items */}
+        <ul className="flex gap-3 items-center">
+          {navItems.map((item, index) => {
+            const isActive = pathname === item.path;
 
-          {/* 
-          <li>
-            <MyNavLink to={"/"}>Home</MyNavLink>
-          </li>
-          <li>
-            <MyNavLink to={"/apps"}>Apps</MyNavLink>
-          </li>
-          <li>
-            <MyNavLink to={"/installedApps"}>Installation</MyNavLink>
-          </li> */}
+            return (
+              <li key={index}>
+                <MyLink href={item.path}>
+                  <span
+                    className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition
+                    ${
+                      isActive
+                        ? "bg-green-900 text-white"
+                        : "text-gray-600 hover:bg-gray-100"
+                    }`}
+                  >
+                    {item.element}
+                    {item.text}
+                  </span>
+                </MyLink>
+              </li>
+            );
+          })}
         </ul>
+
       </div>
     </nav>
   );
